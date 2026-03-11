@@ -1,16 +1,8 @@
-using UnityEngine;
-
-public class NewMonoBehaviourScript : MonoBehaviour
+public enum ItemType
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    Weapon,
+    Armor,
+    Consumable,
+    Shield,
+    Accessory
 }
