@@ -19,4 +19,4 @@ MonoBehaviour:
   nextId: 25
   choices: []
   portrait: {fileID: 0}
-  portraitPath: 
+  portraitPath: Characters/Explorer

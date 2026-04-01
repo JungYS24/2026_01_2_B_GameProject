@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfc29bc2a3b420847a90a8fe798c70cf, type: 2}
   - {fileID: 11400000, guid: 6cdf9d5a4c391bf41a531ef9eaf74278, type: 2}
   portrait: {fileID: 0}
-  portraitPath: 
+  portraitPath: Characters/Narrator
