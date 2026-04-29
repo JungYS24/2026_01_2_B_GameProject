@@ -14,8 +14,8 @@ public class CardManager : MonoBehaviour
 
     public List <GameObject> cardObjects = new List<GameObject>();
 
-    public CharacterStats playerStats;    
-
+    public CharacterStats playerStats;
+    public CharacterStats enemyStats;
     private static CardManager instance;
 
     public static CardManager Instance
@@ -43,6 +43,13 @@ public class CardManager : MonoBehaviour
     void Start()
     {
        ShuffleDeck(); // 게임 시작 시 덱을 섞음
+
+        // 2. 시작 시 카드 3장을 드로우합니다.
+        for (int i = 0; i < 3; i++)
+        {
+            DrawCard();
+        }
+        ArrangeHand();
     }
 
     // Update is called once per frame
@@ -78,42 +85,43 @@ public class CardManager : MonoBehaviour
 
 
 
-    public void DrawCard() // 카드를 뽑는 메서드
+    public void DrawCard()
     {
-        if (handCards.Count >= 6) // 손패에 최대 6장까지 허용
+        // 1. 손패 제한 체크
+        if (handCards.Count >= 6)
         {
-           Debug.Log("손패가 가득 찼습니다! 더 이상 카드를 뽑을 수 없습니다.");
+            Debug.Log("손패가 가득 찼습니다!");
             return;
         }
 
-        if (deckCards.Count == 0) //덱에 카드가 없을 때
+        // 2. 덱이 비었을 때 체크
+        if (deckCards.Count == 0)
         {
-            Debug.Log("덱이 비어있습니다!");
+            Debug.Log("덱이 비어있습니다! 버린 카드를 섞거나 드로우를 중단합니다.");
+            return; // 덱이 없으면 여기서 멈춤
         }
 
-        //덱 맨위에서 카드 가져오기
+        // 3. 카드 종류가 모두 똑같은 문제 해결: 0번 카드를 가져오고 '제거'
         CardData cardData = deckCards[0];
+        deckCards.RemoveAt(0); 
 
-        //손패에 추가
+        // 4. 손패 데이터 리스트에 추가
         handCards.Add(cardData);
 
-        //카드 게임 오브젝트 생성
         GameObject cardObj = Instantiate(cardPrefab, handPosition.position, Quaternion.identity);
 
-        //카드 정보 설정
         CardDisplay cardDisplay = cardObj.GetComponent<CardDisplay>();
-
         if (cardDisplay != null)
         {
             cardDisplay.SetupCard(cardData);
-            cardDisplay.cardIndex = handCards.Count - 1; // 손패에서의 카드 인덱스 설정
+            cardDisplay.cardIndex = cardObjects.Count;
             cardObjects.Add(cardObj);
         }
-        // 손패 위치 업데이트
+
+        // 6. 즉시 위치 갱신
         ArrangeHand();
 
-        Debug.Log("카드를 뽑았습니다: " + cardData.cardName + "(손패 :" + handCards.Count + "/6)");
-
+        Debug.Log($"카드를 뽑았습니다: {cardData.cardName} (남은 덱: {deckCards.Count})");
     }
 
     public void ArrangeHand() //손에 있는 카드 재정렬

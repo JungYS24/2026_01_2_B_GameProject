@@ -1041,15 +1041,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee7877f5a7e318b4c8e6c172dab690ce, type: 2}
   - {fileID: 11400000, guid: b3413406441338145b0ddb33053f28a2, type: 2}
   - {fileID: 11400000, guid: fc2acca2dd51f7647839191ed3767322, type: 2}
-  - {fileID: 11400000, guid: fc2acca2dd51f7647839191ed3767322, type: 2}
-  - {fileID: 11400000, guid: fc2acca2dd51f7647839191ed3767322, type: 2}
-  - {fileID: 11400000, guid: fc2acca2dd51f7647839191ed3767322, type: 2}
-  - {fileID: 11400000, guid: ee7877f5a7e318b4c8e6c172dab690ce, type: 2}
-  - {fileID: 11400000, guid: ee7877f5a7e318b4c8e6c172dab690ce, type: 2}
-  - {fileID: 11400000, guid: ee7877f5a7e318b4c8e6c172dab690ce, type: 2}
-  - {fileID: 11400000, guid: b3413406441338145b0ddb33053f28a2, type: 2}
-  - {fileID: 11400000, guid: b3413406441338145b0ddb33053f28a2, type: 2}
-  - {fileID: 11400000, guid: b3413406441338145b0ddb33053f28a2, type: 2}
+  - {fileID: 11400000, guid: c2d8af485f4d8a043a9616eec44f9cbf, type: 2}
   handCards: []
   discardCards: []
   cardPrefab: {fileID: 2039002565733846121, guid: cec665d9cdbabe6488ec1ad4b02ad1f7, type: 3}
@@ -1058,6 +1050,7 @@ MonoBehaviour:
   discardPosition: {fileID: 149069437}
   cardObjects: []
   playerStats: {fileID: 689739958}
+  enemyStats: {fileID: 1794835627}
 --- !u!4 &2030452852
 Transform:
   m_ObjectHideFlags: 0
